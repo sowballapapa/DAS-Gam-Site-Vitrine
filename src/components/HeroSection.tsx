@@ -2,6 +2,12 @@ import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function HeroSection() {
+    const scrollToContact = () => {
+        const element = document.getElementById("contact");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
   return (
     <section id="accueil" className="relative h-[600px] flex items-center justify-center">
       {/* Background Image */}
@@ -22,12 +28,14 @@ export function HeroSection() {
         <p className="text-white text-xl mb-8 max-w-2xl mx-auto">
           GAM – Générale Activité Mondiale, votre partenaire de confiance pour tous vos projets au Sénégal
         </p>
-        <Button 
-          size="lg" 
-          className="bg-[#DC143C] hover:bg-[#B01030] text-white px-8 py-6"
-        >
-          Nous contacter
-        </Button>
+          <a href="#contact">
+              <Button
+                  size="lg"
+                  className="bg-[#DC143C] hover:bg-[#B01030] text-white px-8 py-6"
+              >
+                  Nous contacter
+              </Button>
+          </a>
       </div>
     </section>
   );
