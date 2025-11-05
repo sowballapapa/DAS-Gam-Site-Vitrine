@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import gam from '../assets/logo_gam.jpg'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ export function Header() {
           <div className="flex items-center">
             <div className="flex flex-col">
                 <span  className=" rounded-full h-70 w-70">
-                    <img width="100px" src="/src/assets/logo_gam.jpg" alt="Logo de GAM"/>
+                    <img width="100px" src={gam} alt="Logo de GAM"/>
                 </span>
             </div>
           </div>
