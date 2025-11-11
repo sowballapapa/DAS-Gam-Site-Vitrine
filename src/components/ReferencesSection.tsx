@@ -1,10 +1,10 @@
 import { Card } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { CheckCircle } from "lucide-react";
-import btp, from '../assets/references/btp.jpg';
-import coster, from '../assets/references/toyota_coster.jpg';
-import minicar, from '../assets/references/minicar.jpg';
-import car, from '../assets/references/car2.jpg';
+import btp from '../assets/references/btp.jpg';
+import coster from '../assets/references/toyota_coster.jpg';
+import minicar from '../assets/references/minicar.jpg';
+import car from '../assets/references/car2.jpg';
 import garage1 from '../assets/references/garage1.jpg';
 import garage4 from '../assets/references/garage4.jpg';
 import garage5 from '../assets/references/garage5.jpg';
