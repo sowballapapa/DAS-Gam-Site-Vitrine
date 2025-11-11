@@ -29,10 +29,11 @@ export function ServicesSection() {
               description: "Fourniture complète pour administrations : matériel de bureau, climatiseurs, équipements de plomberie et tout le nécessaire pour le bon fonctionnement de vos locaux.",
           },
           {
-           icon: SettingsIcon,
-           title: "Réparation et nettoyage Automobile",
-           description: ""
+              icon: SettingsIcon,
+              title: "Réparation et Entretien Automobile",
+              description: "Atelier fermé et sécurisé dédié à l’entretien, au dépannage, à la climatisation, au diagnostic et à la réparation. Équipé d’un pont élévateur, d’un plan élévateur, d’une machine à équilibrer les roues, d’un appareil de diagnostic électronique, d’une dépanneuse, d’un poste de soudure et d’une salle de tôlerie moderne.",
           }
+
   ];
 
   return (

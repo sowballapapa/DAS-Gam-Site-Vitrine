@@ -8,16 +8,16 @@ import garage2 from '../assets/references/garage2.jpg';
 export function ReferencesSection() {
   const projects = [
     {
-      title: "Projet Immobilier Grand Dakar",
+      title: "Attestations de services",
       category: "BTP",
-      year: "2023",
+      year: "",
     },
     {
       title: "Flotte Transport pour certains écoles comme Maarif Thiès",
       category: "Transport",
-      year: "2023",
+      year: "",
     },
-    {
+   /* {
       title: "Installation Électrique Complexe Commercial",
       category: "Électricité",
       year: "2022",
@@ -26,7 +26,7 @@ export function ReferencesSection() {
       title: "Fourniture Matériaux Construction",
       category: "Fournitures",
       year: "2024",
-    },
+    },*/
   ];
 
   const stats = [
