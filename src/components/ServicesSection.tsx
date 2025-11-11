@@ -1,33 +1,38 @@
 import { Card } from "./ui/card";
-import { Building2, Car, Truck, Zap, Package } from "lucide-react";
+import {Building2, Car, Truck, Zap, Package, SettingsIcon, BusIcon} from "lucide-react";
 
 export function ServicesSection() {
   const services = [
-    {
-      icon: Building2,
-      title: "BTP",
-      description: "Construction, rénovation et gestion de projets de bâtiment. De la conception à la réalisation, nous accompagnons tous vos chantiers.",
-    },
-    {
-      icon: Car,
-      title: "Location Automobile",
-      description: "Parc automobile varié pour répondre à tous vos besoins de mobilité : véhicules de tourisme, utilitaires et véhicules de luxe.",
-    },
-    {
-      icon: Truck,
-      title: "Transport",
-      description: "Solutions de transport et logistique adaptées pour particuliers et entreprises, avec une flotte moderne et entretenue.",
-    },
-    {
-      icon: Zap,
-      title: "Électricité Bâtiment",
-      description: "Installation électrique, maintenance et mise aux normes pour bâtiments résidentiels et commerciaux.",
-    },
-    {
-      icon: Package,
-      title: "Fournitures",
-      description: "Approvisionnement en matériaux et fournitures de qualité pour tous vos projets de construction et d'aménagement.",
-    },
+        {
+          icon: Building2,
+          title: "BTP",
+          description: "Construction, rénovation et gestion de projets de bâtiment. De la conception à la réalisation, nous accompagnons tous vos chantiers.",
+        },
+        {
+          icon: Car,
+          title: "Location Automobile",
+          description: "Service de location de véhicules adaptés à tous vos besoins : Toyota Coaster et bus pour vos déplacements professionnels ou scolaires.",
+          },
+          {
+              icon: BusIcon,
+              title: "Transport",
+              description: "Gestion du transport pour les écoles et organisations : sorties pédagogiques, déplacements du personnel et transport régulier des élèves.",
+          },
+          {
+          icon: Zap,
+          title: "Électricité Bâtiment",
+          description: "Installation électrique, maintenance et mise aux normes pour bâtiments résidentiels et commerciaux."
+          },
+          {
+              icon: Package,
+              title: "Fournitures",
+              description: "Fourniture complète pour administrations : matériel de bureau, climatiseurs, équipements de plomberie et tout le nécessaire pour le bon fonctionnement de vos locaux.",
+          },
+          {
+           icon: SettingsIcon,
+           title: "Réparation et nettoyage Automobile",
+           description: ""
+          }
   ];
 
   return (
