@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-
+import garage from "../assets/hero/gam-garage.jpg"
 export function HeroSection() {
     const scrollToContact = () => {
         const element = document.getElementById("contact");
@@ -13,7 +13,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1712700004723-4adc42a3532f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwZGFrYXJ8ZW58MXx8fHwxNzYyMzU5MTUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+            src={garage}
           alt="Chantier GAM"
           className="w-full h-full object-cover"
         />
