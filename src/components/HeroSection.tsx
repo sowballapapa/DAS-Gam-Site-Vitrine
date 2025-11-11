@@ -14,7 +14,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
             src={garage}
-          alt="Chantier GAM"
+          alt="Atelier GAM et Location"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/90 to-[#003366]/70"></div>
@@ -23,7 +23,7 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-white text-5xl md:text-6xl mb-6" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
-          Polyvalence, expertise et fiabilité<br />depuis 2006
+          Polyvalence, Expertise et Fiabilité<br />depuis 2006
         </h1>
         <p className="text-white text-xl mb-8 max-w-2xl mx-auto">
           GAM – Générale Activité Mondiale, votre partenaire de confiance pour tous vos projets au Sénégal
