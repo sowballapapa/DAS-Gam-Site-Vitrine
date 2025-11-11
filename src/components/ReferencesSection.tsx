@@ -1,6 +1,9 @@
 import { Card } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { CheckCircle } from "lucide-react";
+import coster from '../assets/references/toyota_coster.jpg';
+import garage from '../assets/references/garage3.jpg';
+import garage2 from '../assets/references/garage2.jpg';
 
 export function ReferencesSection() {
   const projects = [
@@ -10,8 +13,8 @@ export function ReferencesSection() {
       year: "2023",
     },
     {
-      title: "Flotte Transport Entreprise",
-      category: "Location Automobile",
+      title: "Flotte Transport pour certains écoles comme Maarif Thiès",
+      category: "Transport",
       year: "2023",
     },
     {
@@ -83,22 +86,22 @@ export function ReferencesSection() {
         <div className="grid md:grid-cols-3 gap-6">
           <div className="relative h-64 overflow-hidden rounded-lg">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1712700004723-4adc42a3532f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwZGFrYXJ8ZW58MXx8fHwxNzYyMzU5MTUxfDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Projet BTP"
+                src={coster}
+                alt="Transport et Location automobile"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div className="relative h-64 overflow-hidden rounded-lg">
+            <ImageWithFallback
+              src={garage}
+              alt="Atelier Mécanique"
               className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
             />
           </div>
           <div className="relative h-64 overflow-hidden rounded-lg">
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1573209680076-bd7ec7007616?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cmFuc3BvcnRhdGlvbiUyMGxvZ2lzdGljc3xlbnwxfHx8fDE3NjIzNTkxNTF8MA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Transport"
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-            />
-          </div>
-          <div className="relative h-64 overflow-hidden rounded-lg">
-            <ImageWithFallback
-              src="https://images.unsplash.com/photo-1694702740570-0a31ee1525c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjBidWlsZGluZ3xlbnwxfHx8fDE3NjIyOTcxMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Bâtiment"
+              src={garage2}
+              alt="Atelier Mécanique"
               className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
             />
           </div>
