@@ -3,8 +3,10 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import {MapPin, Phone, Mail, Calendar1, Calendar} from "lucide-react";
+import {MapPin, Phone, Mail, Calendar, SendHorizonal, Loader2, Send} from "lucide-react";
 import { useState } from "react";
+import {toast} from "sonner";
+import emailjs from 'emailjs-com';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -12,23 +14,84 @@ export function ContactSection() {
     email: "",
     message: "",
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    alert("Merci pour votre message ! Nous vous contacterons bientôt.");
-    setFormData({ name: "", email: "", message: "" });
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    const [touched, setTouched] = useState({
+        name: false,
+        email: false,
+        message: false
     });
-  };
+
+    const [loading, setLoading] = useState(false);
+
+    const isValidEmail = (email: string) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+    const isValidMessage = (message: string) => {
+        return message.length > 0 && message.length <= 1000;
+    };
+    const isValidName = (name: string) => {
+        return name.length > 0 && name.length <= 100;
+    };
+    const validateForm = () => {
+
+        if (!isValidEmail(formData.email)) {
+            toast.error('Veuillez entrer un email valide');
+            return false;
+        }
+        if (!isValidMessage(formData.message)) {
+            toast.error('Veuillez entrer un message valide');
+            return false;
+        }
+        if (!isValidName(formData.name)) {
+            toast.error('Veuillez entrer un nom valide');
+            return false;
+        }
+        return true;
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        setLoading(true);
+
+        e.preventDefault();
+        if (!validateForm()) {
+            setLoading(false);
+            return;
+        }
+        emailjs.send(
+            'service_7mkq6if',
+            'template_b2xtlm5',
+            {
+                from_name: formData.name,
+                from_email: formData.email,
+                message: formData.message,
+            },
+            'WB-kt04d74u5DKkzm'
+        )
+            .then(() => {
+                setLoading(false);
+                toast.success('Message envoyé avec succès ! Nous vous recontacterons bientôt.');
+                setFormData({ name: '', email: '', message: '' });
+                setTouched({ name: false, email: false, message: false });
+            })
+            .catch(() => {
+                toast.error('Une erreur est survenue lors de l\'envoi du message.');
+            });
+    };
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
+    };
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name } = e.target;
+        setTouched(prev => ({
+            ...prev,
+            [name]: true
+        }));
+    };
 
   const contactInfo = [
     {
@@ -105,9 +168,7 @@ export function ContactSection() {
                <Card className="bg-white p-8 border-2 border-gray-100">
                    <form onSubmit={handleSubmit} className="space-y-6">
                        <div>
-                           <Label htmlFor="name" className="text-[#003366]">
-                               Nom complet
-                           </Label>
+                           <Label htmlFor="name" className="text-[#003366]">Nom complet</Label>
                            <Input
                                id="name"
                                name="name"
@@ -115,15 +176,23 @@ export function ContactSection() {
                                value={formData.name}
                                onChange={handleChange}
                                required
-                               className="mt-2"
-                               placeholder="Votre nom"
+                               onBlur={handleBlur}
+                               className={`${
+                                   touched.name && !isValidName(formData.name)
+                                       ? 'border-red-500'
+                                       : touched.name
+                                           ? 'border-green-500'
+                                           : ''
+                               } mt-2`}
+                               placeholder="Votre nom complet"
                            />
+                           {!isValidName(formData.name) && touched.name && touched.name &&   (
+                               <p className="text-red-500 text-sm">Veuillez entrer un nom valide (3-100 caractères)</p>
+                           )}
                        </div>
 
                        <div>
-                           <Label htmlFor="email" className="text-[#003366]">
-                               Email
-                           </Label>
+                           <Label htmlFor="email" className="text-[#003366]">Email</Label>
                            <Input
                                id="email"
                                name="email"
@@ -131,32 +200,64 @@ export function ContactSection() {
                                value={formData.email}
                                onChange={handleChange}
                                required
-                               className="mt-2"
-                               placeholder="votre@email.com"
+                               onBlur={handleBlur}
+                               className={`${
+                                   touched.email && !isValidEmail(formData.email)
+                                       ? 'border-red-500'
+                                       : touched.email
+                                           ? 'border-green-500'
+                                           : ''
+                               } mt-2`}
+                               placeholder="votre.email@exemple.com"
                            />
+                           {!isValidEmail(formData.email) && touched.email && (
+                               <p className="text-red-500 text-sm">Veuillez entrer un email valide (ex: example@example.com)</p>
+                           )}
                        </div>
 
                        <div>
-                           <Label htmlFor="message" className="text-[#003366]">
-                               Message
-                           </Label>
+                           <Label htmlFor="message" className="text-[#003366]">Message</Label>
                            <Textarea
                                id="message"
                                name="message"
                                value={formData.message}
                                onChange={handleChange}
                                required
-                               className="mt-2 min-h-[150px]"
-                               placeholder="Votre message..."
+                               onBlur={handleBlur}
+                               className={`${
+                                   touched.message && !isValidMessage(formData.message)
+                                       ? 'border-red-500'
+                                       : touched.message
+                                           ? 'border-green-500'
+                                           : ''
+                               } mt-2 min-h-[150px]`}
+                               placeholder="Décrivez votre projet ou vos besoins..."
                            />
+                           {!isValidMessage(formData.message)  && touched.message && (
+                               <p className="text-red-500 text-sm">Veuillez entrer un message valide (1-1000 caractères)</p>
+                           )}
                        </div>
 
                        <Button
                            type="submit"
                            className="w-full bg-[#DC143C] hover:bg-[#B01030] text-white"
+                           onClick={handleSubmit}
                        >
-                           Envoyer le message
+                           {loading ? (
+                               <>
+                                   <Loader2 className="ml-2 w-4 h-4 animate-spin" />
+                                   En cours d'envoie...
+                                   <SendHorizonal className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform animate-pulse" />
+                               </>
+                           ) : (
+                               <>
+                                   Envoyer le message
+                                   <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                               </>
+                           )}
+
                        </Button>
+
                    </form>
                </Card>
                {/* Business Hours */}
@@ -180,6 +281,9 @@ export function ContactSection() {
                            <div className="flex justify-between">
                                <span>Dimanche</span>
                                <span className="">Fermé</span>
+                           </div>
+                           <div className="flex justify-center text-center text-[#003366] font-bold text-lg">
+                               (En ligne 24h/24 et 7j/7)
                            </div>
                        </div>
                    </CardContent>
