@@ -5,6 +5,8 @@ import { ServicesSection } from "./components/ServicesSection";
 import { ReferencesSection } from "./components/ReferencesSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function App() {
   return (
