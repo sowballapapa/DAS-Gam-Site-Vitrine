@@ -137,10 +137,10 @@ export function ImageCarousel() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-[#003366] text-4xl mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
-            Nos Réalisations en Images
+            Quelques illustrations en images
           </h2>
           <p className="text-[#666666] max-w-2xl mx-auto">
-            Découvrez notre expertise à travers quelques images de nos activités et réalisations.
+            Découvrez notre expertise à travers quelques images de notre ateliers et des véhicules de transport.
           </p>
         </div>
 

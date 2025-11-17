@@ -2,6 +2,7 @@
   import { Award, Target, Shield } from "lucide-react";
   import { ImageWithFallback } from "./figma/ImageWithFallback";
   import { AnimatedSection } from "./AnimatedSection";
+  import img_dg from "../assets/dg/dg.jpg";
 
   export function AboutSection() {
     const values = [
@@ -43,12 +44,8 @@
 
             <AnimatedSection direction="right">
               <Card className="bg-white p-6 border-l-4 border-[#DC143C] hover:shadow-xl transition-all duration-300">
-                <div className="flex items-start justify-between space-x-4 mb-4 ">
-                  <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1554246881-d1aec048cc39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkaXJlY3RvciUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzMwMDA2OXww&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Directeur Général GAM"
-                    className="h-full w-24 max-w-1/2 rounded object-cover border-4 border-[#003366] hover:scale-105 transition-transform duration-300"
-                  />
+                <div className="grid md:grid-cols-2 gap-3 items-start justify-between space-x-4 mb-4 ">
+
                   <div className="">
                     <h3 className="text-[#003366] text-xl mb-3" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
                       Mot du Directeur
@@ -60,6 +57,14 @@
                           — Direction Générale, GAM
                       </p>
                   </div>
+                    <ImageWithFallback
+                        src={img_dg}
+                        alt="Directeur Général GAM"
+                        className=" rounded object-cover border-4 border-[#003366] hover:scale-105 transition-transform duration-300"
+                        style={{
+                            with: 1/2
+                        }}
+                    />
                 </div>
               </Card>
             </AnimatedSection>

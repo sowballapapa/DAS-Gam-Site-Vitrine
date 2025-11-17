@@ -132,37 +132,39 @@ export function ContactSection() {
                 Nos Coordonnées
               </h3>
               <div className="space-y-4">
-                <Card className="bg-gray-50 p-6 flex items-start space-x-4 hover:shadow-lg transition-all duration-300 border-l-4 border-[#003366]">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-[#DC143C] rounded-full flex items-center justify-center">
-                      <Phone className="text-white" size={24} />
+                <Card className=" grid md:grid-cols-2 justify-between bg-gray-50 p-6  space-x-4 hover:shadow-lg transition-all duration-300 border-l-4 border-[#003366]">
+                    <div>
+                        <div className="">
+                            <div className="w-12 h-12 bg-[#DC143C] rounded-full flex items-center justify-center">
+                                <Phone className="text-white" size={24} />
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
+                                Téléphones
+                            </h4>
+                            <p className="text-[#666666] whitespace-pre-line">
+                                +221 33 953 28 24{'\n'}+221 77 534 80 34{'\n'}+221 77 137 13 24
+                            </p>
+                        </div>
                     </div>
-                  </div>
-                  <div>
-                    <h4 className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
-                      Téléphones
-                    </h4>
-                    <p className="text-[#666666] whitespace-pre-line">
-                      +221 33 953 28 24{'\n'}+221 77 534 80 34{'\n'}+221 77 137 13 24
-                    </p>
-                  </div>
+                    <div>
+                        <div className="">
+                            <div className="w-12 h-12 bg-[#DC143C] rounded-full flex items-center justify-center">
+                                <Mail className="text-white" size={24} />
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
+                                Email
+                            </h4>
+                            <p className="text-[#666666] whitespace-pre-line">
+                                gamondiale@gmail.com
+                            </p>
+                        </div>
+                    </div>
                 </Card>
 
-                <Card className="bg-gray-50 p-6 flex items-start space-x-4 hover:shadow-lg transition-all duration-300 border-l-4 border-[#003366]">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-[#DC143C] rounded-full flex items-center justify-center">
-                      <Mail className="text-white" size={24} />
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
-                      Email
-                    </h4>
-                    <p className="text-[#666666] whitespace-pre-line">
-                        gamondiale@gmail.com
-                    </p>
-                  </div>
-                </Card>
               </div>
             </div>
 
