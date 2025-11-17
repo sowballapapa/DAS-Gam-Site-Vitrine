@@ -3,8 +3,10 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
-import { MapPin, Phone, Mail, Send, Loader2, SendHorizonal, Calendar} from "lucide-react";
+import { MapPin, Phone, Mail, Send,  SendHorizonal, Calendar} from "lucide-react";
 import { useState } from "react";
+import {toast} from "sonner";
+import emailjs from "emailjs-com";
 
 export function ContactSection() {
   
@@ -25,7 +27,7 @@ export function ContactSection() {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     };
     const isValidMessage = (message: string) => {
-        return message.length > 0 && message.length <= 1000;
+        return message.length > 9 && message.length <= 1000;
     };
     const isValidName = (name: string) => {
         return name.length > 0 && name.length <= 100;
@@ -233,18 +235,19 @@ export function ContactSection() {
                               onChange={handleChange}
                               onBlur={handleBlur}
                               required
-                              className={`${
+                              style={
                                   touched.name && !isValidName(formData.name)
-                                      ? 'border-red-500'
+                                      ? {border: '2px solid red'}
                                       : touched.name
-                                          ? 'border-green-500'
-                                          : ''
-                              } mt-2 transition-all duration-300 focus:ring-2 focus:ring-[#003366]`}
+                                          ? {border: '2px solid green'}
+                                          : {}
+                              }
+                              className={`mt-2 transition-all duration-300 focus:ring-2 focus:ring-[#003366]`}
                               placeholder="Votre nom"
                           />
 
                           {!isValidName(formData.name) && touched.name && touched.name &&   (
-                              <p className="text-red-500 text-sm">Veuillez entrer un nom valide (3-100 caractères)</p>
+                              <p style={{color: 'red'}}>Veuillez entrer un nom valide (3-100 caractères)</p>
                           )}
                       </div>
 
@@ -258,10 +261,21 @@ export function ContactSection() {
                               type="email"
                               value={formData.email}
                               onChange={handleChange}
+                              onBlur={handleBlur}
                               required
+                              style={
+                                  touched.email && !isValidName(formData.email)
+                                      ? {border: '2px solid red'}
+                                      : touched.email
+                                          ? {border: '2px solid green'}
+                                          : {}
+                              }
                               className="mt-2 transition-all duration-300 focus:ring-2 focus:ring-[#003366]"
                               placeholder="votre@email.com"
                           />
+                          {!isValidEmail(formData.email) && touched.email && (
+                              <p style={{color: 'red'}}>Veuillez entrer un email valide (ex: example@example.com)</p>
+                          )}
                       </div>
 
                       <div>
@@ -273,10 +287,21 @@ export function ContactSection() {
                               name="message"
                               value={formData.message}
                               onChange={handleChange}
+                              onBlur={handleBlur}
                               required
+                              style={
+                                  touched.message && !isValidName(formData.message)
+                                      ? {border: '2px solid red'}
+                                      : touched.message
+                                          ? {border: '2px solid green'}
+                                          : {}
+                              }
                               className="mt-2 min-h-[150px] transition-all duration-300 focus:ring-2 focus:ring-[#003366]"
                               placeholder="Votre message..."
                           />
+                          {!isValidMessage(formData.message)  && touched.message && (
+                              <p style={{color: 'red'}}>Veuillez entrer un message valide (10-1000 caractères)</p>
+                          )}
                       </div>
 
                       <Button
@@ -286,9 +311,16 @@ export function ContactSection() {
                       >
                           {loading ? (
                               <>
-                                  <Loader2 className="ml-2 w-4 h-4 animate-spin" />
+
+                                  <SendHorizonal
+                                      className="ml-2 w-4 h-4 group-hover:translate-x-1 "
+                                      style={{
+                                          transitionProperty: "transform",
+                                          transitionDuration: "150ms",
+                                          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+                                        }}
+                                  />
                                   En cours d'envoie...
-                                  <SendHorizonal className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform animate-pulse" />
                               </>
                           ) : (
                               <>
