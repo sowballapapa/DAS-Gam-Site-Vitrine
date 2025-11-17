@@ -7,6 +7,7 @@ import { ReferencesSection } from "./components/ReferencesSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
 import {Helmet, HelmetProvider} from "react-helmet-async";
+import {Toaster} from "sonner";
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
                   <meta name="twitter:image" content="https://www.gamondial.com/logo_gam.jpg" />
               </Helmet>
               <div className="min-h-screen">
+                  <Toaster />
                   <Header />
                   <main>
                       <HeroSection />
