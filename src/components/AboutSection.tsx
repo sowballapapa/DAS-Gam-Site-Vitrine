@@ -54,7 +54,7 @@
                           "Chez GAM, nous croyons en la polyvalence et l'excellence. Notre engagement est de fournir à nos clients des solutions intégrées qui répondent à leurs attentes les plus exigeantes. Depuis notre création, nous avons su évoluer et nous adapter aux défis du marché tout en maintenant nos valeurs fondamentales : expertise, réactivité et fiabilité."
                       </p>
                       <p className="text-[#003366]">
-                          Mr. Abdoulaye DIOP — Direction Générale, GAM
+                          Mr. Abdoulaye DIOP — Directeur Général, GAM
                       </p>
                   </div>
                     <ImageWithFallback

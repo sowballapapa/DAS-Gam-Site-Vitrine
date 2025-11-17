@@ -5,18 +5,6 @@
   export function ServicesSection() {
     const services = [
       {
-        icon: Building2,
-        title: "BTP – Construction, Réhabilitation et Travaux Spécialisés",
-        description: "GAM réalise des travaux de construction, de rénovation et de réhabilitation pour les administrations, entreprises et collectivités. Nous collaborons étroitement avec l'Entreprise des Grands Travaux (EGT), ce qui nous permet d'intervenir sur des chantiers de haute exigence technique.",
-        prestations: [
-          "Construction et gros œuvre",
-          "Réhabilitation complète des bâtiments",
-          "Travaux en avenant (extensions, reprises, modifications)",
-          "Suivi, contrôle qualité et respect strict des délais",
-        ],
-        conclusion: "Nous garantissons une exécution fiable, conforme aux normes, avec une équipe expérimentée.",
-      },
-      {
         icon: Wrench,
         title: "Réparation & Entretien Automobile – Atelier Professionnel",
         description: "GAM dispose d'un atelier moderne dédié à la maintenance, au diagnostic électronique, à la mécanique générale, à la climatisation et à la tôlerie. Nous assurons notamment la majeure partie des entretiens et réparations des véhicules de la SENELEC, avec un haut niveau de satisfaction.",
@@ -30,29 +18,6 @@
         conclusion: "Nous offrons un service rapide, sécurisé et conforme aux standards professionnels.",
       },
       {
-        icon: Truck,
-        title: "Transport Scolaire & Transport Professionnel",
-        description: "GAM opère des services de transport réguliers pour les écoles, entreprises et organisations. Nous gérons notamment le transport quotidien de l'école Maarif de Dakar et Pioneer's Academy de Thiès.",
-        prestations: [
-          "Transport quotidien des élèves",
-          "Sorties pédagogiques",
-          "Déplacements professionnels",
-          "Transport événementiel",
-        ],
-        conclusion: "Nos chauffeurs sont formés, ponctuels et contrôlés régulièrement pour garantir sécurité et fiabilité.",
-      },
-      {
-        icon: Zap,
-        title: "Climatisation, Électricité & Maintenance Technique",
-        description: "GAM assure l'installation, la maintenance et la mise aux normes des systèmes électriques et de climatisation pour les bâtiments publics et privés. Nous intervenons régulièrement dans plusieurs structures universitaires, notamment UFR Sciences de l'Ingénieur (SI), Institut Universitaire de Technologie (IUT) et autres UFR de l'Université de Thiès.",
-        prestations: [
-          "Installation d'équipements",
-          "Maintenance préventive et corrective",
-          "Mise aux normes électriques",
-          "Dépannage rapide",
-        ],
-      },
-      {
         icon: Package,
         title: "Fournitures & Équipements Professionnels",
         description: "GAM propose une large gamme de fournitures destinées aux administrations, institutions, écoles et entreprises. Nous avons notamment fourni les mobiliers de bureau de plusieurs sphères ministérielles à Diamniadio, dans le cadre de marchés institutionnels.",
@@ -64,6 +29,46 @@
           "Produits divers pour le fonctionnement des locaux",
         ],
       },
+       {
+        icon: Zap,
+        title: "Climatisation, Électricité & Maintenance Technique",
+        description: "GAM assure l'installation, la maintenance et la mise aux normes des systèmes électriques et de climatisation pour les bâtiments publics et privés. Nous intervenons régulièrement dans plusieurs structures universitaires, notamment UFR Sciences de l'Ingénieur (SI), Institut Universitaire de Technologie (IUT) et autres UFR de l'Université de Thiès.",
+        prestations: [
+          "Installation d'équipements",
+          "Maintenance préventive et corrective",
+          "Mise aux normes électriques",
+          "Dépannage rapide",
+        ],
+      },
+       {
+        icon: Truck,
+        title: "Transport Scolaire & Transport Professionnel",
+        description: "GAM opère des services de transport réguliers pour les écoles, entreprises et organisations. Nous gérons notamment le transport quotidien de l'école Maarif de Dakar et Pioneer's Academy de Thiès.",
+        prestations: [
+          "Transport quotidien des élèves",
+          "Sorties pédagogiques",
+          "Déplacements professionnels",
+          "Transport événementiel",
+          "Location automobile"
+        ],
+        conclusion: "Nos chauffeurs sont formés, ponctuels et contrôlés régulièrement pour garantir sécurité et fiabilité.",
+      },
+      {
+        icon: Building2,
+        title: "BTP – Construction, Réhabilitation et Travaux Spécialisés",
+        description: "GAM réalise des travaux de construction, de rénovation et de réhabilitation pour les administrations, entreprises et collectivités. Nous collaborons étroitement avec l'Entreprise des Grands Travaux (EGT), ce qui nous permet d'intervenir sur des chantiers de haute exigence technique.",
+        prestations: [
+          "Construction et gros œuvre",
+          "Réhabilitation complète des bâtiments",
+          "Travaux en avenant (extensions, reprises, modifications)",
+          "Suivi, contrôle qualité et respect strict des délais",
+        ],
+        conclusion: "Nous garantissons une exécution fiable, conforme aux normes, avec une équipe expérimentée.",
+      },
+      
+     
+     
+      
     ];
 
     return (
