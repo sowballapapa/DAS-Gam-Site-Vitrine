@@ -1,6 +1,7 @@
   import { Card } from "./ui/card";
   import { Building2, Wrench, Truck, Zap, Package } from "lucide-react";
   import { AnimatedSection } from "./AnimatedSection";
+  import {ImageCarousel} from "./ImageCarousel";
 
   export function ServicesSection() {
     const services = [
@@ -67,104 +68,107 @@
     ];
 
     return (
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="text-[#003366] text-4xl mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
-                Nos Services
-              </h2>
-              <p className="text-[#666666] max-w-2xl mx-auto">
-                GAM propose une gamme complète de services pour répondre à tous vos besoins professionnels et logistiques au Sénégal.
-              </p>
-            </div>
-          </AnimatedSection>
+      <section id="services" >
+          <section className="py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <AnimatedSection>
+                <div className="text-center mb-12">
+                  <h2 className="text-[#003366] text-4xl mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}>
+                    Nos Services
+                  </h2>
+                  <p className="text-[#666666] max-w-2xl mx-auto">
+                    GAM propose une gamme complète de services pour répondre à tous vos besoins professionnels et logistiques au Sénégal.
+                  </p>
+                </div>
+              </AnimatedSection>
 
-          <div className="space-y-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <AnimatedSection key={index} delay={index * 0.1} direction={index % 2 === 0 ? "left" : "right"}>
-                  <Card 
-                    className="bg-white p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-[#DC143C] hover:-translate-y-1"
-                  >
-                    <div className="flex items-start space-x-6">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 bg-[#003366] rounded-lg flex items-center justify-center hover:bg-[#DC143C] transition-colors duration-300 hover:rotate-6">
-                          <Icon className="text-white" size={32} />
+              <div className="space-y-8">
+                {services.map((service, index) => {
+                  const Icon = service.icon;
+                  return (
+                    <AnimatedSection key={index} delay={index * 0.1} direction={index % 2 === 0 ? "left" : "right"}>
+                      <Card
+                        className="bg-white p-8 hover:shadow-xl transition-all duration-300 border-l-4 border-[#DC143C] hover:-translate-y-1"
+                      >
+                        <div className="flex items-start space-x-6">
+                          <div className="flex-shrink-0">
+                            <div className="w-16 h-16 bg-[#003366] rounded-lg flex items-center justify-center hover:bg-[#DC143C] transition-colors duration-300 hover:rotate-6">
+                              <Icon className="text-white" size={32} />
+                            </div>
+                          </div>
+
+                          <div className="flex-1">
+                            <h3 className="text-[#003366] text-2xl mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
+                              {service.title}
+                            </h3>
+
+                            <p className="text-[#666666] mb-4">
+                              {service.description}
+                            </p>
+
+                            {service.prestations && (
+                              <div className="mb-4">
+                                <p className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
+                                  Nos prestations :
+                                </p>
+                                <ul className="space-y-2">
+                                  {service.prestations.map((prestation, i) => (
+                                    <li key={i} className="flex items-start text-[#666666]">
+                                      <span className="text-[#DC143C] mr-2">•</span>
+                                      <span>{prestation}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+
+                            {service.equipements && (
+                              <div className="mb-4">
+                                <p className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
+                                  Équipements :
+                                </p>
+                                <ul className="space-y-2">
+                                  {service.equipements.map((equipement, i) => (
+                                    <li key={i} className="flex items-start text-[#666666]">
+                                      <span className="text-[#DC143C] mr-2">•</span>
+                                      <span>{equipement}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+
+                            {service.gammes && (
+                              <div className="mb-4">
+                                <p className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
+                                  Nos gammes :
+                                </p>
+                                <ul className="space-y-2">
+                                  {service.gammes.map((gamme, i) => (
+                                    <li key={i} className="flex items-start text-[#666666]">
+                                      <span className="text-[#DC143C] mr-2">•</span>
+                                      <span>{gamme}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+
+                            {service.conclusion && (
+                              <p className="text-[#666666] italic mt-4">
+                                {service.conclusion}
+                              </p>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      
-                      <div className="flex-1">
-                        <h3 className="text-[#003366] text-2xl mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
-                          {service.title}
-                        </h3>
-                        
-                        <p className="text-[#666666] mb-4">
-                          {service.description}
-                        </p>
-
-                        {service.prestations && (
-                          <div className="mb-4">
-                            <p className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
-                              Nos prestations :
-                            </p>
-                            <ul className="space-y-2">
-                              {service.prestations.map((prestation, i) => (
-                                <li key={i} className="flex items-start text-[#666666]">
-                                  <span className="text-[#DC143C] mr-2">•</span>
-                                  <span>{prestation}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {service.equipements && (
-                          <div className="mb-4">
-                            <p className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
-                              Équipements :
-                            </p>
-                            <ul className="space-y-2">
-                              {service.equipements.map((equipement, i) => (
-                                <li key={i} className="flex items-start text-[#666666]">
-                                  <span className="text-[#DC143C] mr-2">•</span>
-                                  <span>{equipement}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {service.gammes && (
-                          <div className="mb-4">
-                            <p className="text-[#003366] mb-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>
-                              Nos gammes :
-                            </p>
-                            <ul className="space-y-2">
-                              {service.gammes.map((gamme, i) => (
-                                <li key={i} className="flex items-start text-[#666666]">
-                                  <span className="text-[#DC143C] mr-2">•</span>
-                                  <span>{gamme}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-
-                        {service.conclusion && (
-                          <p className="text-[#666666] italic mt-4">
-                            {service.conclusion}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </Card>
-                </AnimatedSection>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                      </Card>
+                    </AnimatedSection>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+          <ImageCarousel/>
+        </section>
     );
   }
